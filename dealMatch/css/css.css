@@ -1,0 +1,557 @@
+@charset "UTF-8";
+html{font-family: "微软雅黑", Arial, sans-serif;}
+body,h1,h2,h3,h4,h5,h6,p,ul,li,div{margin: 0; padding: 0; box-sizing: border-box;}
+body{font-size: 0.3rem; -webkit-text-size-adjust: none; text-size-adjust: none;-webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 100%; overflow-x: hidden; position: relative; padding-bottom: 1px;}
+ul{list-style: none;}
+a{color: inherit; text-decoration: none;}
+.fl{float: left;}
+.fr{float: right;}
+.clear:after{content: ""; display: block; clear: both;}
+table{border-collapse:collapse;}
+input:disabled,button:disabled{cursor: not-allowed;}
+img[src=""]{opacity: 0;}
+input:read-only,input:disabled{outline: none !important;}
+input[type=button],input[type=submit],input[type=reset],button{-webkit-appearance: none; appearance: none;}
+.hidden{display: none !important;}
+.scroll{height: 100%; overflow-y: auto;}
+label, input[type=radio],input[type=checkbox]{cursor: default;}
+body:after{
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #ffba7f, #f64943);
+    background: -webkit-linear-gradient(to bottom, #ffba7f, #f64943);
+    z-index: -10;
+}
+body:before{
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../images/starBg.png") repeat-y top center/100% auto;
+    z-index: -8;
+}
+.actvName{
+    width: 100%;
+    max-width: 10rem;
+    margin: 0 auto;
+}
+.actvName img{
+    display: block;
+    width: 100%;
+}
+.entry{
+    margin: 0.7rem auto 0.4rem;
+    text-align: center;
+}
+.entry li{
+    display: inline-block;
+    width: 2.94rem;
+    height: 0.78rem;
+    font-size: 0.36rem;
+    line-height: 0.7rem;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    background: url("../images/btn2.png") no-repeat center center/100% 100%;
+    margin: 0 0.15rem;
+}
+.entry li.on{
+    background: url("../images/btn1.png") no-repeat center center/100% 100%;
+}
+/*排行榜*/
+.active{
+    display: none;
+    width: 6.9rem;
+    border: 3px solid #ee756a;
+    margin: 0.3rem auto;
+    background-color: #fff9f1;
+    background-image: url("../images/borderCen.png");
+    background-repeat: repeat-y;
+    background-size: 100%;
+    position: relative;
+    padding: 0 0.3rem;
+}
+.active.on{
+    display: block;
+}
+.active:before,.active:after,.section .box:before,.section .box:after{
+    content: "";
+    display: block;
+    width: calc(100% + 0.6rem);
+    background-color: #fff9f1;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 0 -0.3rem;
+}
+.active:before{
+    height: 0.48rem;
+    background-image: url("../images/borderTop.png");
+}
+.active:after{
+    height: 0.46rem;
+    background-image: url("../images/borderBot.png");
+}
+.title{
+    font-size: 0.34rem;
+    font-weight: bold;
+    line-height: 0.5rem;
+    text-align: center;
+    background: linear-gradient(to bottom, #feac70, #f95146);
+    background: -webkit-linear-gradient(to bottom, #feac70, #f95146);
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+}
+.title:before,.title:after{
+    content: "";
+    display: inline-block;
+    width: 0.65rem;
+    height: 0.14rem;
+    background: url("../images/line.png") no-repeat center center/contain;
+    margin: 0 0.2rem;
+    position: relative;
+    top: -0.06rem;
+}
+.title:after{
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+}
+.przShow{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+.przShow li{
+    display: block;
+    width: 2.04rem;
+    height: 2.3rem;
+    margin: auto;
+    padding: 0.5rem 0.25rem 0;
+    background: url("../images/level2.png") no-repeat center center/contain;
+}
+.przShow li:first-of-type{
+    background: url("../images/level1.png") no-repeat center center/contain;
+}
+.przShow li img{
+    display: block;
+    width: 1.55rem;
+    height: 1.52rem;
+    border-radius: 100%;
+}
+.przShow li p{
+    width: 1rem;
+    height: 0.32rem;
+    font-size: 0.18rem;
+    line-height: 0.32rem;
+    text-align: center;
+    color: #ffffff;
+    margin: -0.12rem auto 0;
+    border-radius: 5px;
+    background: #ff8d35;
+    position: relative;
+}
+.przShow li:first-of-type p{
+    background: #d4585a;
+}
+.listScroll{
+    width: 100%;
+    padding: 0.3rem 0.15rem;
+    border-radius: 12px;
+    border: 2px solid #fea376;
+    background: #ffffff;
+}
+.listScroll .scroll{
+    max-height: 5.1rem;
+    overflow: auto;
+}
+.scroll table{
+    width: 100%;
+    border: 1px solid #d9d9d9;
+}
+.scroll table td,.scroll table th{
+    border: 1px solid #d9d9d9;
+    height: 0.45rem;
+    text-align: center;
+    padding: 0 0.1rem;
+    color: #666666;
+}
+.center{
+    margin: 0.5rem auto 0.2rem;
+    text-align: center;
+}
+.specBtn{
+    display: block;
+    width: 2.84rem;
+    height: 0.7rem;
+    margin: 0 auto;
+    background: url("../images/btn3.png") no-repeat center center/100% 100%;
+    border: none;
+    outline: none;
+    font-size: 0.34rem;
+    line-height: 0.68rem;
+    color: #ffffff;
+}
+/**/
+.section{
+    margin: 0.5rem 0.45rem;
+}
+.section h4{
+    width: 2.94rem;
+    height: 0.78rem;
+    background: url("../images/btn2.png") no-repeat center center/contain;
+    text-align: center;
+    font-size: 0.36rem;
+    line-height: 0.7rem;
+    color: #ffffff;
+    font-weight: bold;
+    margin: 0.25rem 0;
+}
+.section .box{
+    background-color: #fff9f1;
+    background-image: url("../images/borderCen.png");
+    background-size: 100% 100%;
+    padding: 0 0.3rem;
+}
+.section .box:before{
+    height: 0.48rem;
+    background-image: url("../images/borderTop.png");
+}
+.section .box:after{
+    height: 0.46rem;
+    background-image: url("../images/borderBot.png");
+}
+.box{
+    font-size: 0.28rem;
+    line-height: 0.45rem;
+}
+.section table{
+    font-size: 0.24rem;
+}
+.article{
+    text-indent: 2em;
+    color: #333333;
+}
+.article .noInd{
+    text-indent: 0;
+}
+/*抽奖部分*/
+.active .desktop{
+    width: 6rem;
+    padding: 0.3rem 0.1rem;
+    border-radius: 5px;
+    border: 3px solid #f0b4b4;
+    box-shadow: 0 2px 3px #d58687;
+    margin: 0 auto;
+    box-sizing: content-box;
+}
+.desktop li{
+    display: block;
+    float: left;
+    width: 1.8rem;
+    height: 1.8rem;
+    margin: 0.1rem;
+}
+.desktop li.prizeList{
+    border-radius: 2px;
+    box-shadow: 0 0 3px #c3b69d;
+    background: #ffffff;
+    overflow: hidden;
+    position: relative;
+}
+.desktop li.prizeList img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.desktop li.prizeList.on{
+    background: #ffbe7c;
+    border: 2px solid #ee7848;
+}
+.desktop li.prizeList.on:before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(252,161,134,0.4);
+}
+
+.desktop li.prizeBtn .activeBtn{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background: url("../images/prizeBtn.png") no-repeat center center/contain;
+    border: none;
+    outline: none;
+    font-size: 0.36rem;
+    color: #ffffff;
+}
+.desktop li.prizeBtn .activeBtn:active{
+    color: #eaeaea;
+    text-shadow: 0 0 2px #eaeaea;
+}
+.chance{
+    font-size: 0.28rem;
+    line-height: 0.48rem;
+    margin: 0.3rem auto 0;
+    text-align: center;
+    color: #ee756c;
+}
+/*弹窗*/
+.floor{
+    position: fixed;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    left: 0;
+    top: 0;
+}
+.floor .flr{
+    position: relative;
+    margin: auto;
+    display: none;
+}
+.flr .close{
+    position: absolute;
+    width: 0.7rem;
+    height: 0.7rem;
+    background: url("../images/close.png") no-repeat center center/contain;
+    right: -0.7rem;
+    top: -0.95rem;
+}
+.flr .window{
+    overflow: hidden;
+}
+/*中奖弹窗*/
+.card{
+    width: 5.8rem;
+    height: 5.8rem;
+    text-align: center;
+    background: url("../images/card.png") no-repeat center center/100% 100%;
+    padding: 1.25rem 0.75rem 0.75rem;
+}
+.ltrResult{
+    font-size: 0.4rem;
+    line-height: 0.8rem;
+    padding-bottom: 0.1rem;
+    font-weight: bolder;
+    color: #ffffff;
+    text-shadow: 0 0 8px #b13e2c;
+}
+.card img{
+    display: block;
+    width: 2.3rem;
+    margin: 0.1rem auto;
+}
+.card~.center{
+    margin-top: 0.45rem;
+}
+.winPrz .close{
+    right: 0.2rem;
+    top: -0.32rem;
+}
+/*确认信息弹窗*/
+.phoneNum .window,.alert .window{
+    width: 5.4rem;
+    background: #ffffff;
+    border-radius: 10px;
+}
+.phoneNum .window:before,.buy .window:before,.alert .window:before{
+    content: "";
+    display: block;
+    width: calc(100% + 24px);
+    height: calc(100% + 24px);
+    position: absolute;
+    z-index: -8;
+    background: linear-gradient(to bottom, #ff8e7e, #fe8d7e);
+    background: -webkit-linear-gradient(to bottom, #ff8e7e, #fe8d7e);
+    border-radius: 12px;
+    box-shadow: 0 0 12px #ffc1a8 inset;
+    left: -12px;
+    top: -12px;
+}
+.phoneNum .window:after,.buy .window:after,.alert .window:after{
+    content: "";
+    display: block;
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    position: absolute;
+    z-index: -10;
+    background: rgba(255,255,255,0.6);
+    border-radius: 12px;
+    box-shadow: 0 0 12px #ffffff;
+    left: -20px;
+    top: -20px;
+}
+.tipTit{
+    font-size: 0.32rem;
+    line-height: 0.6rem;
+    padding: 0.1rem 0.1rem 0.05rem;
+    text-align: center;
+    color: #b03f2f;
+    background: #ffcba3;
+}
+.tipTxt{
+    min-height: 1.6rem;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    font-size: 0.3rem;
+    margin-top: 0.2rem;
+}
+.tipMsg{
+    width: 100%;
+    font-size: 0.3rem;
+    text-align: center;
+}
+.tipInp{
+    display: block;
+    width: 4rem;
+    height: 0.6rem;
+    font-size: 0.28rem;
+    border: 1px solid #a5a5a5;
+    outline: none;
+    background: #f3f3f3;
+    color: #2c2c2c;
+    letter-spacing: 0.3em;
+    text-align: center;
+    border-radius: 6px;
+}
+.tipTxt~.center{
+    margin-top: 0.3rem;
+}
+.alert .tipTxt~.center{
+    margin-top: 0.1rem;
+}
+.window .specBtn{
+    width: 2.4rem;
+}
+/*购买确认弹窗*/
+.buy{
+}
+.buy .window{
+    width: 5.6rem;
+    padding: 0.25rem;
+    background: #ffffff;
+    border-radius: 10px;
+}
+.wareBrief{
+    position: relative;
+    margin: 0 -0.25rem;
+    border-bottom: 8px solid #eaeaea;
+    padding: 0 0.25rem 0.2rem;
+}
+.wareBrief img{
+    display: block;
+    position: absolute;
+    width: 1.5rem;
+    left: 0.2rem;
+    top: 0;
+}
+.wareBrief .wareName{
+    font-size: 0.28rem;
+    line-height: 1.5rem;
+    padding-left: 1.6rem;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.wareName span{
+    display: inline-block;
+    line-height: 0.5rem;
+    vertical-align: middle;
+}
+.wareBrief .wareVal{
+    font-size: 0.26rem;
+    line-height: 0.5rem;
+    padding-left: 1.6rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #fe8d6f;
+}
+.receiveInfo{
+    padding: 0.15rem 0;
+    font-size: 0.3rem;
+    line-height: 0.6rem;
+}
+.receiveInfo .infoLine{
+    position: relative;
+    padding-left: 1.1rem;
+    padding-top: 0.2rem;
+    border-bottom: 1px solid #dadada;
+}
+.receiveInfo h4.infoLine{
+    padding-left: 0.1rem;
+    font-size: 0.3rem;
+    font-weight: normal;
+}
+.infoLine>span:first-of-type{
+    display: block;
+    width: 1rem;
+    height: 0.6rem;
+    position: absolute;
+    left: 0.1rem;
+    top: 0.2rem;
+}
+.infoLine .infoInp{
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+    height: 0.6rem;
+    font-size: 0.3rem;
+    border: none;
+    outline: none;
+}
+.infoLine .infoSel{
+    display: inline-block;
+    width: 30%;
+    height: 0.6rem;
+    margin-right: 1%;
+    vertical-align: middle;
+    position: relative;
+    top: -0.04rem;
+}
+.infoSel select{
+    display: inline-block;
+    width: 100%;
+    height: 0.5rem;
+    font-size: 0.28rem;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+.tips{
+    font-size: 0.24rem;
+    line-height: 0.4rem;
+    margin: 0.2rem 0;
+    color: #ff4a49;
+}
+.buyBtn.lg{
+    width: 3rem;
+    height: 0.7rem;
+    font-size: 0.3rem;
+    margin: 0.4rem auto 0.2rem;
+}
